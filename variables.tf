@@ -45,6 +45,14 @@ variable "user_data" {
   default     = ""
 }
 
+variable "ssh_user" {
+  description = "SSH User"
+}
+
+variable "public_ssh_key" {
+  description = "SSH Public Key"
+}
+
 variable "admin_username" {
   description = "Windows Admin User"
   default = "Administrator"

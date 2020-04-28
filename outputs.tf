@@ -53,11 +53,6 @@ output "user_data" {
   value       = "${var.user_data}"
 }
 
-output "os_user" {
-  description = "The OS user to be used"
-  value       = "${module.dcos-windows-instances.admin_username}"
-}
-
 output "private_ips" {
   description = "List of private ip addresses created by this module"
   value       = ["${module.dcos-windows-instances.private_ips}"]

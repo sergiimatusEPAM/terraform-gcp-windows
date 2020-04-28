@@ -36,7 +36,7 @@ data "google_compute_image" "windows_image" {
 }
 
 resource "random_password" "password" {
-  count            = "${var.num}"
+  count            = "${var.num_windows_agents}"
   length           = 32
   min_upper        = 1
   min_lower        = 1
@@ -62,6 +62,8 @@ module "dcos-windows-instances" {
   user_data                = "${var.user_data}"
   machine_type             = "${var.machine_type}"
   instance_subnetwork_name = "${var.windows_agent_subnetwork_name}"
+  public_ssh_key           = "${var.public_ssh_key}"
+  ssh_user                 = "${var.ssh_user}"
   enable_windows_agents    = true
   admin_username           = "${var.admin_username}"
   admin_password_list      = ["${random_password.password.*.result}"]
